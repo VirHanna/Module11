@@ -10,12 +10,13 @@ public class Task5 {
                     if (firstIterator.hasNext() && secondIterator.hasNext()) {
                         T firstElement = firstIterator.next();
                         T secondElement = secondIterator.next();
-                        return Stream.of(firstElement, secondElement);  // Повертаємо пару елементів
+                        return Stream.of(firstElement, secondElement);  
+                    } else {
+                        return null;
                     }
-                    return null;  // Якщо один з потоків закінчився, повертаємо null
                 })
-                .takeWhile(element -> element != null)  // Виходимо, коли один з потоків закінчився
-                .flatMap(s -> s); // Розгортаємо пару елементів
+                .takeWhile(element -> element != null)
+                .flatMap(s -> s);
     }
 
     public static void main(String[] args) {
